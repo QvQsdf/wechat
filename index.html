@@ -88,12 +88,12 @@
             overflow: auto;
             background-color: rgba(0, 0, 0, 0.8);
         }
-        .modal img {
+        .modal-content {
             margin: auto;
             display: block;
             max-width: 90%;
             max-height: 80%;
-            margin-top: 5%;
+            padding: 20px;
         }
         .modal-close {
             position: absolute;
@@ -120,13 +120,13 @@
         <p>请长按下面的二维码并选择“识别图中二维码”以添加我为好友：</p>
         <div class="icon">📱</div>
         <img src="微信图片_20240824152700.jpg" alt="微信二维码" id="qrCode">
-        <p>点击放大图片</p>
+        <p>点击放大图片<p>
     </div>
 
     <!-- Modal for zoomed image -->
     <div class="modal" id="myModal">
         <span class="modal-close" id="closeModal">&times;</span>
-        <img id="modalImage" src="" alt="放大二维码">
+        <img id="modalImage" class="modal-content" src="" alt="放大二维码">
     </div>
 
     <script>
