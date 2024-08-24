@@ -87,6 +87,7 @@
             height: 100%;
             overflow: auto;
             background-color: rgba(0, 0, 0, 0.8);
+            text-align: center;
         }
         .modal-content {
             margin: auto;
@@ -104,31 +105,6 @@
             cursor: pointer;
             z-index: 1001;
         }
-        /* 长按菜单样式 */
-        .longpress-menu {
-            display: none;
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #fff;
-            border: 1px solid #00796b;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            padding: 10px;
-            z-index: 1000;
-        }
-        .longpress-menu button {
-            background: #00796b;
-            color: #fff;
-            border: none;
-            padding: 10px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .longpress-menu button:hover {
-            background: #004d40;
-        }
         @media (max-width: 600px) {
             h1 {
                 font-size: 24px;
@@ -143,8 +119,8 @@
     <div class="container">
         <h1>添加我的微信好友</h1>
         <p>请长按下面的二维码并选择“识别图中二维码”以添加我为好友：</p>
+        <div class="icon">📱</div>
         <img src="微信图片_20240824152700.jpg" alt="微信二维码" id="qrCode">
-        <p>点击放大图片<p>
     </div>
 
     <!-- Modal for zoomed image -->
@@ -159,9 +135,6 @@
         const modal = document.getElementById('myModal');
         const modalImage = document.getElementById('modalImage');
         const closeModal = document.getElementById('closeModal');
-        const longpressMenu = document.getElementById('longpressMenu');
-
-        let pressTimer;
 
         // 点击二维码图片时显示 modal
         qrCode.onclick = function() {
@@ -180,34 +153,6 @@
                 modal.style.display = 'none';
             }
         };
-
-        // 长按事件处理
-        qrCode.addEventListener('mousedown', function(event) {
-            pressTimer = setTimeout(function() {
-                longpressMenu.style.display = 'block';
-            }, 1000); // 长按时间设定为1秒
-        });
-
-        qrCode.addEventListener('mouseup', function(event) {
-            clearTimeout(pressTimer);
-        });
-
-        qrCode.addEventListener('mouseleave', function(event) {
-            clearTimeout(pressTimer);
-        });
-
-        function copyQRCode() {
-            // 实现复制二维码的功能
-            alert("二维码已复制到剪贴板。");
-            longpressMenu.style.display = 'none';
-        }
-
-        // 点击菜单外部区域时隐藏菜单
-        window.addEventListener('click', function(event) {
-            if (!event.target.closest('#qrCode') && !event.target.closest('#longpressMenu')) {
-                longpressMenu.style.display = 'none';
-            }
-        });
     </script>
 </body>
 </html>
