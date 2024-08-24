@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f0f4f8; /* 更简洁的背景色 */
+            background-color: #f0f4f8; /* 背景颜色 */
             color: #333;
             margin: 0;
             padding: 0;
@@ -19,6 +19,7 @@
             background-image: url('https://www.example.com/your-background-pattern.png'); /* 替换为你的背景图案 */
             background-size: cover;
             background-attachment: fixed;
+            user-select: none; /* 禁用网页内容的选择 */
         }
         .container {
             background: #ffffff;
@@ -29,6 +30,7 @@
             width: 90%;
             position: relative;
             overflow: hidden;
+            user-select: auto; /* 允许选择容器内的内容 */
         }
         .container::before {
             content: '';
@@ -59,6 +61,7 @@
             border: 3px solid #00796b;
             border-radius: 12px;
             z-index: 1;
+            user-select: auto; /* 允许选择图片 */
         }
         .icon {
             font-size: 24px;
@@ -88,6 +91,7 @@
         <p>请长按下面的二维码并选择“识别图中二维码”以添加我为好友：</p>
         <div class="icon">📱</div>
         <img src="微信图片_20240824152700.jpg" alt="微信二维码">
+        <div class="arrow">⬇️</div>
     </div>
 </body>
 </html>
