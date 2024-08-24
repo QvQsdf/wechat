@@ -16,7 +16,7 @@
             justify-content: center;
             height: 100vh;
             text-align: center;
-            background-image: url('https://www.example.com/your-background-pattern.png'); /* 替换为你的背景图案 */
+            background-image: url('https://www.example.com/微信图片_20240824152700.jpg'); /* 替换为你的背景图案 */
             background-size: cover;
             background-attachment: fixed;
             user-select: none; /* 禁用网页内容的选择 */
@@ -65,19 +65,16 @@
             z-index: 1;
             user-select: auto; /* 允许选择二维码图片 */
         }
-        .icon {
+        .icon, .arrow {
             font-size: 24px;
             color: #00796b;
             margin-bottom: 20px;
             z-index: 1;
-            user-select: none; /* 禁用图标选择 */
+            user-select: none; /* 禁用图标和箭头选择 */
         }
         .arrow {
             font-size: 32px;
-            color: #00796b;
             margin-top: 10px;
-            z-index: 1;
-            user-select: none; /* 禁用箭头选择 */
         }
         @media (max-width: 600px) {
             h1 {
@@ -93,7 +90,9 @@
     <div class="container">
         <h1>添加我的微信好友</h1>
         <p>请长按下面的二维码并选择“识别图中二维码”以添加我为好友：</p>
+        <div class="icon">📱</div>
         <img src="微信图片_20240824152700.jpg" alt="微信二维码">
+        <div class="arrow">⬇️</div>
     </div>
 </body>
 </html>
