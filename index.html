@@ -63,7 +63,7 @@
             border: 3px solid #00796b;
             border-radius: 12px;
             z-index: 1;
-            user-select: auto; /* 允许选择二维码图片 */
+            cursor: pointer; /* 显示点击手型 */
         }
         .icon, .arrow {
             font-size: 24px;
@@ -75,6 +75,33 @@
         .arrow {
             font-size: 32px;
             margin-top: 10px;
+        }
+        /* 放大图片样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .modal img {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 80%;
+        }
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            color: #fff;
+            cursor: pointer;
+            z-index: 1001;
         }
         @media (max-width: 600px) {
             h1 {
@@ -91,8 +118,40 @@
         <h1>添加我的微信好友</h1>
         <p>请长按下面的二维码并选择“识别图中二维码”以添加我为好友：</p>
         <div class="icon">📱</div>
-        <img src="微信图片_20240824152700.jpg" alt="微信二维码">
-        <image show-menu-by-longpress="{{true}}" src="{{sysset.dyqewm}}"  />
+        <img src="微信图片_20240824152700.jpg" alt="微信二维码" id="qrCode">
+        <div class="arrow">点击图片放大</div>
     </div>
+
+    <!-- Modal for zoomed image -->
+    <div class="modal" id="myModal">
+        <span class="modal-close" id="closeModal">&times;</span>
+        <img id="modalImage" src="" alt="放大二维码">
+    </div>
+
+    <script>
+        // 获取元素
+        const qrCode = document.getElementById('qrCode');
+        const modal = document.getElementById('myModal');
+        const modalImage = document.getElementById('modalImage');
+        const closeModal = document.getElementById('closeModal');
+
+        // 点击二维码图片时显示 modal
+        qrCode.onclick = function() {
+            modal.style.display = 'block';
+            modalImage.src = this.src;
+        };
+
+        // 点击关闭按钮时隐藏 modal
+        closeModal.onclick = function() {
+            modal.style.display = 'none';
+        };
+
+        // 点击 modal 外部区域时隐藏 modal
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        };
+    </script>
 </body>
 </html>
