@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>请在浏览器中打开</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; padding-top: 50px; background-color: #f9f9f9; }
+    .tip { font-size: 18px; color: #333; margin-top: 20px; }
+    img { width: 300px; margin-top: 30px; }
+  </style>
+</head>
+<body>
+  <h2>请在浏览器中打开</h2>
+  <div class="tip">请点击右上角“…”，选择“在浏览器中打开”以继续访问</div>
+  <img src="https://img.alicdn.com/imgextra/i4/1769290828/O1CN01bnFt2N1yqBXAvPPYU_!!1769290828.png" alt="打开方式示意图">
+  <script>
+    var ua = navigator.userAgent.toLowerCase();
+    if (!ua.includes('micromessenger')) {
+      window.location.href = "https://hy.xcryzs22.cn/#/pages/tabBar/reg/reg?aid=594";
+    }
+  </script>
+</body>
+</html>
